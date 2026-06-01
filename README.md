@@ -37,12 +37,15 @@ That’s it! 🎉 The video will be saved to your selected folder.
 To clone this repository, run the following command:
 
 ```bash
-[git clone https://github.com/your-username/video-downloader-app.git](https://github.com/LoayCpp/Download-Video-Tool.git)
+  git clone https://github.com/LoayCpp/Download-Video-Tool.git
 ```
 
 Then open the solution file in **Visual Studio** and run the project.
 
 ---
+## Download Tools:
+
+https://github.com/LoayCpp/Download-Video-Tool/releases/download/v1.0.0/VideoDownloader_v1.0.0_Portable.zip
 
 ## 🛠️ Requirements
 - Visual Studio 2019 or later
