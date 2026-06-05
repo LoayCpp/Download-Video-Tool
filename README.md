@@ -28,7 +28,8 @@ That’s it! 🎉 The video will be saved to your selected folder.
 
 ## 🖼️ Screenshot
 
-<img width="684" height="597" alt="image" src="https://github.com/user-attachments/assets/9acd2801-5fdc-4197-93d3-d967615f0f45" />
+<img width="684" height="597" alt="image" src="https://github.com/user-attachments/assets/81d7cb54-c41a-47d8-9ed0-864a0f7942cd" />
+
 
 ---
 
@@ -46,6 +47,7 @@ Then open the solution file in **Visual Studio** and run the project.
 ## Download Tools:
 
 https://github.com/LoayCpp/Download-Video-Tool/releases/download/v1.0.0/VideoDownloader_v1.0.0_Portable.zip
+
 
 ## 🛠️ Requirements
 - Visual Studio 2019 or later
