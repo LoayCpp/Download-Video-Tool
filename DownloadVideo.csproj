@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Gemini_Generated_Image_micfqmmicfqmmicf.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -90,6 +93,7 @@
     <None Include="Resources\Icon.png" />
     <None Include="Resources\images %281%29.jpg" />
     <None Include="Resources\images %281%29-Photoroom.png" />
+    <Content Include="Gemini_Generated_Image_micfqmmicfqmmicf.ico" />
     <Content Include="yt-dlp.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

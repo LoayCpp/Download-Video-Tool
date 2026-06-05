@@ -10,3 +10,15 @@ C:\Users\loaya\Desktop\pradvice\course 14 C#\DownloadVideo\obj\Debug\DownloadVid
 C:\Users\loaya\Desktop\pradvice\course 14 C#\DownloadVideo\obj\Debug\DownloadVideo.exe
 C:\Users\loaya\Desktop\pradvice\course 14 C#\DownloadVideo\obj\Debug\DownloadVideo.pdb
 C:\Users\loaya\Desktop\pradvice\course 14 C#\DownloadVideo\obj\Debug\DownloadVideo.frmAboutMe.resources
+C:\Users\loaya\Desktop\GitHubLoay\Download-Video-Tool\bin\Debug\yt-dlp.exe
+C:\Users\loaya\Desktop\GitHubLoay\Download-Video-Tool\bin\Debug\DownloadVideo.exe.config
+C:\Users\loaya\Desktop\GitHubLoay\Download-Video-Tool\bin\Debug\DownloadVideo.exe
+C:\Users\loaya\Desktop\GitHubLoay\Download-Video-Tool\bin\Debug\DownloadVideo.pdb
+C:\Users\loaya\Desktop\GitHubLoay\Download-Video-Tool\obj\Debug\DownloadVideo.csproj.AssemblyReference.cache
+C:\Users\loaya\Desktop\GitHubLoay\Download-Video-Tool\obj\Debug\DownloadVideo.Form1.resources
+C:\Users\loaya\Desktop\GitHubLoay\Download-Video-Tool\obj\Debug\DownloadVideo.frmAboutme.resources
+C:\Users\loaya\Desktop\GitHubLoay\Download-Video-Tool\obj\Debug\DownloadVideo.Properties.Resources.resources
+C:\Users\loaya\Desktop\GitHubLoay\Download-Video-Tool\obj\Debug\DownloadVideo.csproj.GenerateResource.cache
+C:\Users\loaya\Desktop\GitHubLoay\Download-Video-Tool\obj\Debug\DownloadVideo.csproj.CoreCompileInputs.cache
+C:\Users\loaya\Desktop\GitHubLoay\Download-Video-Tool\obj\Debug\DownloadVideo.exe
+C:\Users\loaya\Desktop\GitHubLoay\Download-Video-Tool\obj\Debug\DownloadVideo.pdb
