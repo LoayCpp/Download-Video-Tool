@@ -21,7 +21,7 @@ namespace DownloadVideo
             InitializeComponent();
             txtURL.BackColor = Color.FromArgb(16, 25, 61);
             btnDownload.BackColor =btnAboutMe.BackColor=btnExit.BackColor=btnHome.BackColor =Color.FromArgb(134, 27, 250);
-            btnDownload.Image = new Bitmap(Image.FromFile("DownloadIcon.png"), new Size(25, 25));
+          
             lblStatus.Visible = false;
             btnDownload.Enabled = false;
             this.MaximizeBox = false;
