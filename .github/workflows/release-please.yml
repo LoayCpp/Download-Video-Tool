@@ -1,23 +1,62 @@
 name: Release Please
 
-# أولاً: متى يشتغل البوت؟ (عند عمل Push أو Merge على فرع main)
 on:
   push:
     branches:
       - main
 
-# ثانياً: إعطاء البوت صلاحية الكتابة لتعديل الملفات وفتح الـ PRs
 permissions:
   contents: write
   pull-requests: write
 
-# ثالثاً: الأوامر البرمجية التي سينفذها البوت داخل خوادم جيتهاب
 jobs:
   release-please:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.releases_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
     steps:
-      # استدعاء الأداة الرسمية من جوجل وتحديد نوع المشروع (دوت نت)
       - uses: googleapis/release-please-action@v4
+        id: release
         with:
           release-type: dotnet
           path: .
+
+  build-and-deploy:
+    needs: release-please
+    if: ${{ needs.release-please.outputs.release_created }}
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v2
+
+      - name: Restore NuGet Packages
+        run: nuget restore DownloadVideo.sln
+
+      - name: Build Project (Release Mode)
+        run: msbuild DownloadVideo.sln /p:Configuration=Release /p:Platform="AnyCPU"
+
+      - name: Compile Inno Setup Installer
+        uses: ayoolajohn/Inno-Setup-Action@v1.0.3
+        with:
+          # التعديل الآمن هنا مع علامات التنصيص
+          path: "dist/Videos Donwloader Setup.iss" 
+
+      - name: Create Portable Zip
+        shell: powershell
+        run: |
+          Compress-Archive -Path bin\Release\* -DestinationPath "bin\Release\VideoDownloader_${{ needs.release-please.outputs.tag_name }}_Portable.zip"
+
+      - name: Upload Assets to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.release-please.outputs.tag_name }}
+          files: |
+            dist/Video_Downloader_Setup.exe
+            bin/Release/*.zip
