@@ -46,8 +46,11 @@ Then open the solution file in **Visual Studio** and run the project.
 ---
 ## Download Tools:
 
+# zip folder
 https://github.com/LoayCpp/Download-Video-Tool/releases/download/v1.0.0/VideoDownloader_v1.0.0_Portable.zip
 
+# exe installer
+https://github.com/LoayCpp/Download-Video-Tool/releases/latest/download/Vidoe.Downloader.Setup.exe
 
 ## 🛠️ Requirements
 - Visual Studio 2019 or later
