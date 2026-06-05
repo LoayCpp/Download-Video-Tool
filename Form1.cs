@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using DownloadVideo;
+using System.IO;
 
 namespace DownloadVideo
 {
     public partial class Form1 : Form
     {
+        string pathDownload = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyVideos));
         public Form1()
         {
             InitializeComponent();
@@ -44,7 +46,7 @@ namespace DownloadVideo
             lblStatus.Text = "Downloading......";
             ProcessStartInfo info = new ProcessStartInfo();
             info.FileName = "yt-dlp.exe";
-            info.Arguments = $"-o \"Downloading\\%(title)s.%(ext)s\" {txtURL.Text}";
+            info.Arguments = $"-o \"{pathDownload}\\%(title)s.%(ext)s\" {txtURL.Text}";
             Process process1 = Process.Start(info);
             process1.WaitForExit();
             lblStatus.Text = "Done";
@@ -77,6 +79,17 @@ namespace DownloadVideo
         {
             Form form = new frmAboutme();
             form.ShowDialog();
+        }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folder = new FolderBrowserDialog();
+
+            if (folder.ShowDialog() == DialogResult.OK)
+            {
+
+                pathDownload = folder.SelectedPath;
+            }
         }
     }
 }
