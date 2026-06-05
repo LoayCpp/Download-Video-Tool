@@ -3,11 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\loaya\\Desktop\\GitHubLoay\\Download-Video-Tool\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0B43035F-65C5-45C3-A148-6E1E4EB496B7}|DownloadVideo.csproj|c:\\users\\loaya\\desktop\\githubloay\\download-video-tool\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B43035F-65C5-45C3-A148-6E1E4EB496B7}|DownloadVideo.csproj|solutionrelative:properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0B43035F-65C5-45C3-A148-6E1E4EB496B7}|DownloadVideo.csproj|c:\\users\\loaya\\desktop\\githubloay\\download-video-tool\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0B43035F-65C5-45C3-A148-6E1E4EB496B7}|DownloadVideo.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0B43035F-65C5-45C3-A148-6E1E4EB496B7}|DownloadVideo.csproj|c:\\users\\loaya\\desktop\\githubloay\\download-video-tool\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{0B43035F-65C5-45C3-A148-6E1E4EB496B7}|DownloadVideo.csproj|C:\\Users\\loaya\\Desktop\\GitHubLoay\\Download-Video-Tool\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{0B43035F-65C5-45C3-A148-6E1E4EB496B7}|DownloadVideo.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -18,12 +22,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
@@ -35,6 +35,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\Users\\loaya\\Desktop\\GitHubLoay\\Download-Video-Tool\\Properties\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "Properties\\AssemblyInfo.cs",
+              "ToolTip": "C:\\Users\\loaya\\Desktop\\GitHubLoay\\Download-Video-Tool\\Properties\\AssemblyInfo.cs",
+              "RelativeToolTip": "Properties\\AssemblyInfo.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAuwAwAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-05T18:36:08.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\loaya\\Desktop\\GitHubLoay\\Download-Video-Tool\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
@@ -47,15 +60,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\loaya\\Desktop\\GitHubLoay\\Download-Video-Tool\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "C:\\Users\\loaya\\Desktop\\GitHubLoay\\Download-Video-Tool\\Form1.cs [Design]",
               "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-05T11:26:31.134Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-06-05T11:26:31.134Z"
             }
           ]
         }
