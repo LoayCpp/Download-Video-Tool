@@ -1,0 +1,23 @@
+name: Release Please
+
+# أولاً: متى يشتغل البوت؟ (عند عمل Push أو Merge على فرع main)
+on:
+  push:
+    branches:
+      - main
+
+# ثانياً: إعطاء البوت صلاحية الكتابة لتعديل الملفات وفتح الـ PRs
+permissions:
+  contents: write
+  pull-requests: write
+
+# ثالثاً: الأوامر البرمجية التي سينفذها البوت داخل خوادم جيتهاب
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      # استدعاء الأداة الرسمية من جوجل وتحديد نوع المشروع (دوت نت)
+      - uses: googleapis/release-please-action@v4
+        with:
+          release-type: dotnet
+          path: .
