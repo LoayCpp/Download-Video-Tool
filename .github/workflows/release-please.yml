@@ -1,7 +1,14 @@
-name: Release Please
+name: Video Downloader CI/CD
 
 on:
   push:
+    branches:
+      - main
+      - develop
+    tags:
+      - "v*"
+
+  pull_request:
     branches:
       - main
 
@@ -10,53 +17,96 @@ permissions:
   pull-requests: write
 
 jobs:
-  release-please:
-    runs-on: windows-latest
-    outputs:
-      release_created: ${{ steps.release.outputs.releases_created }}
-      tag_name: ${{ steps.release.outputs.tag_name }}
-    steps:
-      - uses: googleapis/release-please-action@v4
-        id: release
-        with:
-          release-type: dotnet
-          path: .
 
-  build-and-deploy:
-    needs: release-please
-    if: ${{ needs.release-please.outputs.release_created }}
+  build:
     runs-on: windows-latest
+
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v2
 
-      - name: Setup NuGet
-        uses: NuGet/setup-nuget@v2
-
-      - name: Restore NuGet Packages
+      - name: Restore NuGet
         run: nuget restore DownloadVideo.sln
 
-      - name: Build Project (Release Mode)
+      - name: Build Release
         run: msbuild DownloadVideo.sln /p:Configuration=Release /p:Platform="AnyCPU"
 
-      - name: Compile Inno Setup Installer
-        uses: ayoolajohn/Inno-Setup-Action@v1.0.3
-        with:
-          # التعديل الآمن هنا مع علامات التنصيص
-          path: "dist/Videos Donwloader Setup.iss" 
+      # 🔥 تجهيز نسخة تشغيل نظيفة
+      - name: Prepare Publish Folder
+        shell: powershell
+        run: |
+          mkdir publish
+          xcopy bin\Release publish /E /I /Y
 
+      # 🔥 استخراج النسخة من tag أو commit
+      - name: Generate Version
+        id: version
+        shell: powershell
+        run: |
+          if ("${{ github.ref_type }}" -eq "tag") {
+            echo "version=${{ github.ref_name }}" >> $env:GITHUB_OUTPUT
+          } else {
+            echo "version=dev-${{ github.run_number }}" >> $env:GITHUB_OUTPUT
+          }
+
+      # 📦 Portable ZIP
       - name: Create Portable Zip
         shell: powershell
         run: |
-          Compress-Archive -Path bin\Release\* -DestinationPath "bin\Release\VideoDownloader_${{ needs.release-please.outputs.tag_name }}_Portable.zip"
+          Compress-Archive -Path publish\* -DestinationPath "VideoDownloader_${{ steps.version.outputs.version }}_Portable.zip"
 
-      - name: Upload Assets to GitHub Release
+      # 🧱 Build Installer (Inno Setup)
+      - name: Compile Inno Setup Installer
+        uses: ayoolajohn/Inno-Setup-Action@v1.0.3
+        with:
+          path: "dist/Videos Donwloader Setup.iss"
+
+      # 🔍 تحقق من الملفات الناتجة
+      - name: List output
+        shell: powershell
+        run: |
+          dir dist
+          dir .
+
+      # 📤 رفع artifacts (للتجربة)
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: |
+            dist/*
+            *.zip
+
+  release:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+
+      - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ needs.release-please.outputs.tag_name }}
+          tag_name: ${{ github.ref_name }}
           files: |
-            dist/Video_Downloader_Setup.exe
-            bin/Release/*.zip
+            *.zip
+            dist/*.exe
