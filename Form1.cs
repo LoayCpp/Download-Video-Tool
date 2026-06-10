@@ -46,7 +46,11 @@ namespace DownloadVideo
             lblStatus.Text = "Downloading......";
             ProcessStartInfo info = new ProcessStartInfo();
             info.FileName = "yt-dlp.exe";
-            info.Arguments = $"-o \"{pathDownload}\\%(title)s.%(ext)s\" {txtURL.Text}";
+            info.Arguments =
+$"-f \"bv+ba/b\" " +
+$"--ffmpeg-location \"{Application.StartupPath}\" " +
+$"-o \"{pathDownload}\\%(title)s.%(ext)s\" " +
+$"\"{txtURL.Text.Trim()}\"";
             Process process1 = Process.Start(info);
             process1.WaitForExit();
             lblStatus.Text = "Done";
